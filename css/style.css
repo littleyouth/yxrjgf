@@ -1,0 +1,473 @@
+/* 基础样式设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+:root {
+    --primary-color: #2979ff;
+    --primary-dark: #0d47a1;
+    --green-color: #00c853;
+    --green-dark: #009624;
+    --purple-color: #9c27b0;
+    --purple-dark: #6a0080;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-light: #999;
+    --bg-light: #f5f7fa;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 英雄区域样式 */
+.hero-section {
+    position: relative;
+    height: 350px;
+    background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(41, 121, 255, 0.7) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.site-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s ease;
+}
+
+.site-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+/* 头部样式 */
+header {
+    margin: 20px 0 40px;
+    text-align: center;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.logo i {
+    margin-right: 10px;
+    font-size: 2rem;
+}
+
+/* 主内容区域样式 */
+main {
+    flex: 1;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-icon::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    top: -100%;
+    left: -100%;
+    transition: all 0.5s ease;
+}
+
+.card:hover .card-icon::before {
+    top: 100%;
+    left: 100%;
+}
+
+.green {
+    background: linear-gradient(135deg, var(--green-color), var(--green-dark));
+}
+
+.blue {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+}
+
+.purple {
+    background: linear-gradient(135deg, var(--purple-color), var(--purple-dark));
+}
+
+.card-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.card-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.card-footer {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(41, 121, 255, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(41, 121, 255, 0.4);
+}
+
+.btn i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover i {
+    transform: translateX(5px);
+}
+
+/* 收藏提示样式 */
+.bookmark-tip {
+    background: linear-gradient(135deg, #00796b, #004d40);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 121, 107, 0.3);
+}
+
+.bookmark-tip i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.bookmark-tip p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+kbd {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin: 0 3px;
+}
+
+/* 底部样式 */
+footer {
+    margin-top: 60px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    padding: 20px;
+}
+
+.copyright {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* 动画效果 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .hero-section {
+        height: 300px;
+    }
+    
+    .site-title {
+        font-size: 2.8rem;
+    }
+    
+    .site-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 250px;
+    }
+    
+    .site-title {
+        font-size: 2.2rem;
+    }
+    
+    .site-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .logo i {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        height: 220px;
+    }
+    
+    .site-title {
+        font-size: 1.8rem;
+    }
+    
+    .site-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .bookmark-tip {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* 微信公众号区域样式 */
+.wechat-section {
+    margin: 50px 0;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.wechat-content {
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+    background: linear-gradient(to right, #f9f9f9, white);
+    border-radius: 16px;
+}
+
+.wechat-text {
+    flex: 1;
+}
+
+.wechat-text h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.wechat-text p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.wechat-qrcode {
+    flex-shrink: 0;
+    margin-left: 40px;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease;
+}
+
+.wechat-qrcode:hover {
+    transform: scale(1.03);
+}
+
+.wechat-qrcode img {
+    width: 240px; /* 更大的二维码尺寸 */
+    height: auto;
+    display: block;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .wechat-qrcode img {
+        width: 200px;
+    }
+    
+    .wechat-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .wechat-text p {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .wechat-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .wechat-text {
+        margin-bottom: 30px;
+    }
+    
+    .wechat-qrcode {
+        margin-left: 0;
+    }
+    
+    .wechat-qrcode img {
+        width: 220px; /* 在移动设备上仍保持较大尺寸 */
+    }
+}
